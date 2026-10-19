@@ -1,0 +1,29 @@
+html,
+body {
+  margin: 0 auto;
+  min-height: 100vh;
+  font-family: var(--font-PT-serif);
+  overflow: auto;
+  color: var(--txt-body);
+  font-size: 0.95rem;
+  overflow-x: hidden;
+  background-color: var(--bg-section-light);
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}                   
+
+p {
+  margin: 0;
+  font-size: inherit;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style-type: none;
+}

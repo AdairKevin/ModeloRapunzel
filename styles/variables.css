@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quintessential&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap");
+
+:root {
+  --gold-gradient: linear-gradient(120deg, #f6e27a, #c9a44c, #a57c2c, #f6e27a);
+  --gold-gradient2: linear-gradient(
+    180deg,
+    #fff3a3,
+    #ffd700,
+    #d4af37,
+    #c1921b,
+    #ffd700,
+    #fff3a3
+  );
+  --rose: #9d70a0;
+  --rose-main: #c9a3c7;
+  --rose-light: #f2e6e7;
+  --gold-elegant: #c9a44c;
+  --gray-pearl: #8f8a86;
+  --ivory-paper: #f7f3eb;
+
+  --bg-section-light: #f6f6f6;
+  --bg-section-dark: #2c2c2c;
+
+  --bg-gradient: linear-gradient(
+    131deg,
+    #eee6da -3.63%,
+    #8b7e64 60.5%,
+    #8c7f65 100.94%
+  );
+
+  --font-titulos: "Playfair Display", serif;
+  --font-subtitulos: "Great Vibes", cursive;
+  --font-texto: "PT Serif", serif;
+
+  --img-photo-home: url(../img/Photo-home.webp);
+  --img-F1: url(../img/c1.jpeg);
+  --img-F2: url(../img/c2.jpeg);
+  --img-F3: url(../img/c3.jpeg);
+  --img-F4: url(../img/portada.jpeg);
+  --img-F5: url(../img/c2.jpeg);
+
+  --img-overlay-stain-1: url(../img/stain-1.svg);
+  --img-overlay-stain-2: url(../img/stain-2.svg);
+
+  --img-overlay-points-1: url(../img/points-2.svg);
+  --img-overlay-points-2: url(../img/points-2.svg);
+  --img-overlay-leaf-1: url(../assets/img/);
+  --img-overlay-leaf-2: url(../img/leaf-2.svg);
+  --img-overlay-leaf-3: url(../img/leaf-3.svg);
+}
