@@ -1,0 +1,302 @@
+/* =========================================================
+   EXTRAS: animaciones al hacer scroll, partículas temáticas,
+   calendario, formulario RSVP y botón flotante de música.
+   Los colores salen de tema.css (--t-*)
+   ========================================================= */
+
+/* ---------- Aparición al hacer scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+.reveal.zoom {
+  transform: scale(0.9);
+}
+.reveal.izq {
+  transform: translateX(-50px);
+}
+.reveal.der {
+  transform: translateX(50px);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Capa de partículas ---------- */
+.particulas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 50;
+}
+.particula {
+  position: absolute;
+  top: -40px;
+  will-change: transform, opacity;
+}
+
+/* ---------- Calendario ---------- */
+.section-calendario {
+  width: calc(100% - 30px);
+  max-width: 500px;
+  margin: 1rem auto 2rem;
+  text-align: center;
+}
+.calendario-card {
+  background: var(--t-card);
+  border: 1px solid var(--t-borde);
+  border-radius: 20px;
+  padding: 1.6rem 1.2rem;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+  position: relative;
+}
+.calendario-titulo {
+  font-family: var(--t-font-script);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--t-primario);
+  margin: 0 0 0.2rem;
+}
+.calendario-mes {
+  font-family: var(--t-font-titulo);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.85rem;
+  color: var(--t-texto);
+  margin-bottom: 1rem;
+}
+.calendario-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  font-family: var(--t-font-texto);
+  font-size: 0.8rem;
+  color: var(--t-texto);
+}
+.calendario-grid .dia-semana {
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  color: var(--t-primario);
+  padding-bottom: 4px;
+}
+.calendario-grid span {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.calendario-grid .dia-evento {
+  position: relative;
+  color: #fff;
+  font-weight: 700;
+  background: var(--t-primario);
+  animation: latido 1.6s ease-in-out infinite;
+}
+.calendario-grid .dia-evento::after {
+  content: var(--t-icono-dia, "♥");
+  position: absolute;
+  top: -10px;
+  right: -6px;
+  font-size: 0.8rem;
+  color: var(--t-acento);
+}
+.calendario-botones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.3rem;
+}
+.btn-tema {
+  display: inline-block;
+  padding: 0.75rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--t-borde);
+  background: var(--t-boton);
+  color: var(--t-boton-texto);
+  font-family: var(--t-font-texto);
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.btn-tema:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+}
+.btn-tema.secundario {
+  background: transparent;
+  color: var(--t-primario);
+}
+
+@keyframes latido {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 var(--t-brillo);
+  }
+  50% {
+    transform: scale(1.12);
+    box-shadow: 0 0 0 8px transparent;
+  }
+}
+
+/* ---------- Formulario RSVP ---------- */
+.rsvp-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-top: 1rem;
+  text-align: left;
+}
+.rsvp-form h3 {
+  font-family: var(--t-font-script);
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: center;
+  color: var(--t-primario);
+  margin: 0 0 0.4rem;
+}
+.rsvp-form label {
+  font-family: var(--t-font-texto);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--t-texto);
+}
+.rsvp-form input,
+.rsvp-form select,
+.rsvp-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--t-borde);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  font-family: var(--t-font-texto);
+  font-size: 0.9rem;
+  color: #333;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+.rsvp-form input:focus,
+.rsvp-form select:focus,
+.rsvp-form textarea:focus {
+  outline: none;
+  border-color: var(--t-primario);
+  box-shadow: 0 0 0 3px var(--t-brillo);
+}
+.rsvp-opciones {
+  display: flex;
+  gap: 0.5rem;
+}
+.rsvp-opciones label {
+  flex: 1;
+  cursor: pointer;
+}
+.rsvp-opciones input {
+  display: none;
+}
+.rsvp-opciones span {
+  display: block;
+  padding: 0.7rem 0.4rem;
+  border: 1px solid var(--t-borde);
+  border-radius: 12px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s;
+}
+.rsvp-opciones input:checked + span {
+  background: var(--t-primario);
+  color: #fff;
+  border-color: var(--t-primario);
+}
+.rsvp-form .btn-tema {
+  align-self: center;
+  margin-top: 0.6rem;
+}
+.rsvp-gracias {
+  display: none;
+  font-family: var(--t-font-script);
+  font-size: 1.6rem;
+  color: var(--t-primario);
+  text-align: center;
+}
+.rsvp-form.enviado + .rsvp-gracias {
+  display: block;
+  animation: aparecer 0.8s ease both;
+}
+
+/* ---------- Botón flotante de música ---------- */
+.musica-flotante {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 60;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--t-borde);
+  background: var(--t-boton);
+  color: var(--t-boton-texto);
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  display: none;
+}
+.musica-flotante.activo {
+  display: block;
+}
+.musica-flotante.sonando {
+  animation: girar 6s linear infinite;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Título del home entra con brillo al abrir el sobre */
+.titulo h1,
+.titulo h2 {
+  animation: aparecer 1.4s ease both;
+}
+.titulo h2 {
+  animation-delay: 0.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .particulas {
+    display: none;
+  }
+}

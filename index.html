@@ -1,4 +1,5 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,9 +9,12 @@
     <link rel="stylesheet" href="./styles/responsive.css" />
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/variables.css" />
+    <link rel="stylesheet" href="./styles/extras.css" />
+    <link rel="stylesheet" href="./styles/tema.css" />
   </head>
 
-  <body class="center" translate="no">
+  <body class="center" data-tema="rapunzel" translate="no">
+    <div class="particulas" id="particulas" aria-hidden="true"></div>
     <!-- SOBRE DE BIENVENIDA -->
     <div class="envelope-screen" id="envelopeScreen">
       <div class="envelope">
@@ -142,6 +146,9 @@
             </div>
           </div>
         </section>
+
+        <section class="section-calendario" id="calendario"></section>
+
 
         <div class="timer">
           <h1 class="timer-titulo">Solo faltan:</h1>
@@ -291,9 +298,23 @@
               merecen ser compartidos
             </p>
             <b>¡Gracias por acompañarnos!</b>
-            <button class="confirmar">
-              <a href="#"> Confirmar asistencia </a>
-            </button>
+            <form class="rsvp-form" id="rsvpForm">
+              <h3>Confirma tu asistencia</h3>
+              <label for="rsvpNombre">Nombre completo</label>
+              <input id="rsvpNombre" name="nombre" type="text" required />
+              <div class="rsvp-opciones">
+                <label><input type="radio" name="asistencia" value="si" checked /><span>Sí asistiré</span></label>
+                <label><input type="radio" name="asistencia" value="no" /><span>No podré ir</span></label>
+              </div>
+              <div class="campo-personas">
+                <label for="rsvpPersonas">Número de asistentes</label>
+                <input id="rsvpPersonas" name="personas" type="number" min="1" value="1" />
+              </div>
+              <label for="rsvpMensaje">Mensaje para la festejada (opcional)</label>
+              <textarea id="rsvpMensaje" name="mensaje" rows="3"></textarea>
+              <button type="submit" class="btn-tema">Enviar por WhatsApp</button>
+            </form>
+            <p class="rsvp-gracias">¡Gracias por tu respuesta!</p>
           </div>
         </section>
 
@@ -310,5 +331,6 @@
       </div>
     </div>
     <script src="script.js"></script>
+    <script src="extras.js"></script>
   </body>
 </html>

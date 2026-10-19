@@ -1,0 +1,138 @@
+/* =========================================================
+   TEMA RAPUNZEL: torre, lila, dorado y linternas flotantes
+   ========================================================= */
+@import url("https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap");
+
+:root {
+  --t-primario: #8e5ea2;
+  --t-acento: #f2b33d;
+  --t-texto: #4e3a5c;
+  --t-card: #f7f0fb;
+  --t-borde: rgba(242, 179, 61, 0.7);
+  --t-boton: linear-gradient(135deg, #b48bd1, #8e5ea2);
+  --t-boton-texto: #fff;
+  --t-brillo: rgba(242, 179, 61, 0.4);
+  --t-font-script: "Tangerine", cursive;
+  --t-font-titulo: "Cinzel", serif;
+  --t-font-texto: "Cormorant Garamond", serif;
+  --t-icono-dia: "☀";
+}
+
+/* Linternas de papel encendidas */
+.linterna {
+  width: 18px;
+  height: 24px;
+  border-radius: 6px 6px 9px 9px;
+  background: linear-gradient(to bottom, #ffd27a, #f28c28 70%, #c2561b);
+  box-shadow:
+    0 0 18px 6px rgba(255, 170, 60, 0.55),
+    0 0 40px 12px rgba(255, 140, 40, 0.25);
+}
+.linterna::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  width: 6px;
+  height: 4px;
+  transform: translateX(-50%);
+  background: #7a3b12;
+  border-radius: 2px;
+}
+
+/* Sol de Corona girando y brillando */
+.sociedad img {
+  animation:
+    girar 30s linear infinite,
+    resplandor 3s ease-in-out infinite;
+}
+@keyframes resplandor {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 4px rgba(242, 179, 61, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 18px rgba(242, 179, 61, 1));
+  }
+}
+
+/* Rapunzel del reproductor flota suavemente */
+.rapunzel {
+  animation: flotar 5s ease-in-out infinite;
+}
+@keyframes flotar {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Títulos del reino */
+.sociedad h1,
+.frase-l h1 {
+  font-family: var(--t-font-titulo);
+}
+.timer-titulo,
+.section-message b {
+  font-family: var(--t-font-script);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--t-primario);
+}
+
+/* Contador en forma de linterna */
+.date-time li {
+  border-radius: 14px 14px 22px 22px;
+  border-color: var(--t-acento);
+  background: linear-gradient(to bottom, #fff8ea, #fbe6ff);
+  box-shadow: 0 0 18px rgba(242, 179, 61, 0.35);
+}
+.date-time li::before {
+  content: "☀";
+  color: var(--t-acento);
+}
+.date-time .time_number {
+  color: var(--t-primario);
+}
+
+/* Tarjetas de lugar con brillo cálido */
+.box-place,
+.box-place-salon {
+  border-color: var(--t-acento);
+  background: linear-gradient(160deg, #fbf3ff, #fff6e5);
+}
+
+/* Botones lilas */
+.confirmar {
+  background: var(--t-boton);
+  border-color: var(--t-acento);
+}
+.confirmar a {
+  color: #fff;
+}
+
+/* Sello: brilla como el cabello mágico */
+.wax-seal {
+  animation: resplandor 2s ease-in-out infinite;
+  cursor: pointer;
+}
+
+/* Cabello dorado: línea ondulada animada como separador */
+.section-calendario::before {
+  content: "";
+  display: block;
+  height: 14px;
+  margin: 0 auto 1rem;
+  width: 70%;
+  background: radial-gradient(circle at 10px -2px, transparent 8px, var(--t-acento) 9px, transparent 10px) repeat-x;
+  background-size: 20px 14px;
+  animation: cabello 3s linear infinite;
+}
+@keyframes cabello {
+  to {
+    background-position: 40px 0;
+  }
+}
