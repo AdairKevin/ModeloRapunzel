@@ -9,6 +9,8 @@ const CONFIG = {
   whatsapp: "", // Número con lada, ej. 5215512345678 (vacío = el invitado elige contacto)
 };
 
+(() => {
+const audio = document.getElementById("audioPlayer");
 const tema = document.body.dataset.tema;
 const fecha = new Date(CONFIG.inicio);
 
@@ -138,7 +140,6 @@ const reducido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* Se activan al abrir el sobre: ráfaga inicial y luego goteo constante */
 document.getElementById("openEnvelope").addEventListener("click", () => {
-  const audio = document.getElementById("audioPlayer");
   audio.play().then(() => (document.getElementById("playPauseBtn").textContent = "⏸")).catch(() => {});
   if (reducido || !crearParticula) return;
   setTimeout(() => {
@@ -150,7 +151,6 @@ document.getElementById("openEnvelope").addEventListener("click", () => {
 });
 
 /* ---------- Botón flotante de música ---------- */
-const audio = document.getElementById("audioPlayer");
 const flotante = document.createElement("button");
 flotante.className = "musica-flotante";
 flotante.setAttribute("aria-label", "Pausar o reproducir música");
@@ -248,3 +248,4 @@ if (form) {
     })
   );
 }
+})();
