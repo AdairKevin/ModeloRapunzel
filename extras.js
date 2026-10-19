@@ -248,4 +248,54 @@ if (form) {
     })
   );
 }
+
+/* ---------- Sobre: tooltip, carta interior y destello al abrir ---------- */
+const sello = document.getElementById("openEnvelope");
+const sobre = document.querySelector(".envelope");
+const tooltip = document.createElement("span");
+tooltip.className = "sobre-tooltip";
+tooltip.textContent = "Da click";
+sello.appendChild(tooltip);
+const carta = document.createElement("div");
+carta.className = "sobre-carta";
+carta.innerHTML = `<small>Estás invitado</small><strong>${document.querySelector(".titulo h2")?.textContent.trim() || ""}</strong>`;
+sobre.appendChild(carta);
+
+sello.addEventListener("click", () => {
+  if (reducido) return;
+  const r = sello.getBoundingClientRect();
+  const cx = r.left + r.width / 2,
+    cy = r.top + r.height / 2;
+  const luz = document.createElement("span");
+  luz.className = "destello-sobre";
+  luz.style.left = cx - 5 + "px";
+  luz.style.top = cy - 5 + "px";
+  document.body.appendChild(luz);
+  luz.animate([{ transform: "scale(0)", opacity: 1 }, { transform: "scale(60)", opacity: 0 }], {
+    duration: 900,
+    easing: "ease-out",
+  }).onfinish = () => luz.remove();
+  for (let i = 0; i < 26; i++) {
+    const c = document.createElement("span");
+    c.className = "chispa";
+    c.style.left = cx - 3 + "px";
+    c.style.top = cy - 3 + "px";
+    document.body.appendChild(c);
+    const ang = (i / 26) * Math.PI * 2,
+      dist = azar(70, 160);
+    c.animate(
+      [
+        { transform: "translate(0,0) scale(1)", opacity: 1 },
+        { transform: `translate(${Math.cos(ang) * dist}px, ${Math.sin(ang) * dist + 40}px) scale(0)`, opacity: 0 },
+      ],
+      { duration: azar(700, 1200), easing: "cubic-bezier(0.1, 0.8, 0.3, 1)" }
+    ).onfinish = () => c.remove();
+  }
+});
+
+/* ---------- Cronograma e itinerario aparecen uno por uno ---------- */
+document.querySelectorAll(".cronograma li, .timeline .event").forEach((el, i) => {
+  el.classList.add("reveal", i % 2 ? "der" : "izq");
+  observador.observe(el);
+});
 })();
