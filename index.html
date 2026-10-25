@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Invitacion Atziri Abril</title>
+    <title>Invitación</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./styles/layout.css" />
     <link rel="stylesheet" href="./styles/responsive.css" />
@@ -14,334 +14,335 @@
   </head>
 
   <body class="center" data-tema="rapunzel" translate="no">
-    <div class="particulas" id="particulas" aria-hidden="true"></div>
-    <!-- SOBRE DE BIENVENIDA -->
-    <div class="envelope-screen" id="envelopeScreen">
-      <div class="envelope">
-        <div class="envelope-flap"></div>
+    <!-- Todos los textos, fotos y links se editan en contenido.json; aquí solo van variables -->
+    <template id="plantilla">
+      <div class="particulas" id="particulas" aria-hidden="true"></div>
+      <!-- SOBRE DE BIENVENIDA -->
+      <div class="envelope-screen" id="envelopeScreen">
+        <div class="envelope">
+          <div class="envelope-flap"></div>
 
-        <!-- Flap inferior -->
-        <div class="wax-seal" id="openEnvelope"></div>
+          <!-- Flap inferior -->
+          <div class="wax-seal" id="openEnvelope"></div>
+        </div>
       </div>
-    </div>
 
-    <div class="invitation-content hidden" id="invitationContent">
-      <!-- TODO tu contenido actual -->
-
-      <div class="content">
-        <section class="section-home">
-          <div class="home-content">
-            <img class="home-img" alt="photo" src="./assets/img/Fondo.png" />
-            <div class="titulo">
-              <h1>Mis XV</h1>
-              <h2>Atziri Abril</h2>
-            </div>
-          </div>
-        </section>
-
-        <section class="musica">
-          <div class="music-card">
-            <img class="rapunzel" src="./assets/img/rapunzel.png" alt="" />
-
-            <!-- <div class="album-art"></div> -->
-            <div class="song-title">Veo en ti la luz</div>
-            <div class="artist-name">Chayanne, Danna Paola</div>
-
-            <button class="play-button" id="playPauseBtn">▶</button>
-
-            <div class="progress-container">
-              <div class="progress" id="progressBar"></div>
-            </div>
-
-            <audio
-              id="audioPlayer"
-              src="./assets/music/Chayanne, Danna Paola - Veo en ti la luz (De EnredadosVideo Oficial).mp3"
-            ></audio>
-            <!-- Cambia por tu archivo mp3 -->
-          </div>
-        </section>
-
-        <div class="img-separador">
-          <img class="foto1" src="./assets/img/xv1.jpg" alt="separador" />
-        </div>
-
-        <div class="palabras">
-          <p>
-            Te damos gracias señor por el don de la vida, porque hace quince
-            años nos bendeciste con una linda niña que hoy vemos convertirse en
-            una hermosa señorita: <b>Proverbios 4:23</b> <br />
-            Protege tu corazón con sabiduría y brilla con ese resplandor que
-            tienes hermosa princesa.
-          </p>
-          <small>Atte tus papás</small>
-        </div>
-
-        <section class="section-info">
-          <div class="overlay-section-info">
-            <span></span>
-            <span></span>
-          </div>
-
-          <div class="box-info">
-            <div class="info-primary">
-              <div class="sociedad">
-                <img style="width: 150px" src="./assets/img/sol.png" alt="" />
-                <h1 translate="no">Royal Kingdom</h1>
-                <h2 class="sub" translate="no">THE CORONA CHRONICLES</h2>
-              </div>
-
-              <p>
-                APRECIABLES FAMILIARES Y AMIGOS <br />
-                CON GRAN ALEGRÍA Y EL CORAZÓN LLENO DE ILUSIÓN DESEAMOS
-                COMPARTIR CON USTEDES UNA NOCHE MÁGICA
-              </p>
-            </div>
-
-            <div class="padres">
-              <ul>
-                <li>Yolanda Cuatzo Mendez</li>
-                <li>Ricardo Felipe Abonza Olar</li>
-              </ul>
-            </div>
-
-            <div class="frase-p">
-              <p>
-                tienen el honor de invitarles a formar parte de una velada
-                encantada, donde celebraremos la llegada de un nuevo capítulo
-                lleno de sueños, luz y momentos inolvidables junto a nuestros
-                seres más queridos.
-              </p>
-            </div>
-
-            <div class="frase-l">
-              <h1>
-                Con motivo de los XV años <br />
-                de su amada hija
-              </h1>
-            </div>
-
-            <div class="nombre">
-              <h2>Atziri Abril</h2>
-              <h3>Abonza Cuatzo</h3>
-            </div>
-
-            <div class="padrinos">
-              <p>Acompañada por sus padrinos</p>
-              <h2>
-                Teresa Cuatzo Mendez <br />
-                Martin Reyes Calix
-              </h2>
-            </div>
-
-            <div class="fecha" translate="no">
-              <p>
-                tendrán el placer de recibirles en una noche de ensueño el día
-              </p>
-            </div>
-
-            <div class="date-box">
-              <h2 class="dia">SÁBADO</h2>
-              <h1>15/08/2026</h1>
-              <h2 class="hora">a las 18:00 hrs</h2>
-            </div>
-          </div>
-        </section>
-
-        <section class="section-calendario" id="calendario"></section>
-
-
-        <div class="timer">
-          <h1 class="timer-titulo">Solo faltan:</h1>
-          <ul class="date-time">
-            <li>
-              <div class="time_number" id="dias"></div>
-              <div class="time_txt">Días</div>
-            </li>
-            <li>
-              <div class="time_number" id="horas"></div>
-              <div class="time_txt">Horas</div>
-            </li>
-            <li>
-              <div class="time_number" id="minutos"></div>
-              <div class="time_txt">Minutos</div>
-            </li>
-            <li>
-              <div class="time_number" id="segundos"></div>
-              <div class="time_txt">Segundos</div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="img-separador">
-          <img src="./assets/img/xv2.jpg" alt="separador" />
-        </div>
-
-        <section class="section-place">
-          <div class="box-place">
-            <div class="place-info center">
-              <img
-                width="75"
-                src="./assets/icons/church.svg"
-                alt="church"
-                fill="#000000"
-              />
-              <div class="place-txt">
-                <h2>Ceremonia</h2>
-                <p>
-                  <b>18:00 hrs</b> Pte. 12-A Manzana 043, Col del Carmen, 56619
-                  Valle de Chalco Solidaridad, Méx.
-                </p>
+      <div class="invitation-content hidden" id="invitationContent">
+        <div class="content">
+          <section class="section-home">
+            <div class="home-content">
+              <img class="home-img" alt="{{portada.fotoAlt}}" src="{{portada.foto}}" />
+              <div class="titulo">
+                <h1>{{portada.titulo}}</h1>
+                <h2>{{portada.nombre}}</h2>
               </div>
             </div>
-            <a
-              class="place-btn"
-              href="#"
-              target="_blank"
-            >
-              VER UBICACIÓN
-            </a>
-          </div>
-        </section>
-
-        <section class="section-place-salon">
-          <div class="box-place-salon">
-            <div class="place-info center">
-              <img width="120" src="./assets/icons/bola.png" alt="disco" />
-              <div class="place-txt fiesta">
-                <h2>Recepción</h2>
-                <p>
-                  <b>Terminando la ceremonia</b> Salon De Eventos "Las
-                  Orquideas" Avenida Soto y Gama y poniente 12-B, Col del
-                  Carmen, 56619 Valle de Chalco Solidaridad, Méx.
-                </p>
-              </div>
-            </div>
-            <a
-              class="place-btn"
-              href="#"
-              target="_blank"
-            >
-              VER UBICACIÓN
-            </a>
-          </div>
-        </section>
-
-        <section class="section-cronograma">
-          <h2>Cronograma</h2>
-          <ul class="cronograma">
-            <li><span class="hora">18:00</span><span class="actividad">Ceremonia</span></li>
-            <li><span class="hora">19:30</span><span class="actividad">Recepción</span></li>
-            <li><span class="hora">20:30</span><span class="actividad">Cena</span></li>
-            <li><span class="hora">21:30</span><span class="actividad">Vals</span></li>
-            <li><span class="hora">22:00</span><span class="actividad">Baile</span></li>
-            <li><span class="hora">00:00</span><span class="actividad">Pastel</span></li>
-          </ul>
-        </section>
-
-        <!--  <div class="img-separador">
-          <img
-            src="./assets/img/WhatsApp Image 2026-07-22 at 7.40.02 PM.jpeg"
-            alt="separador"
-          />
-        </div>
-        -->
-        <section class="social-section">
-          <div class="social-card">
-            <span class="social-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>
-
-            <h2>Captura el momento</h2>
-
-            <p>
-              Comparte los recuerdos más mágicos de esta noche. Etiqueta a la
-              quinceañera y forma parte de esta historia inolvidable.
-            </p>
-
-            <div class="instagram-user">@usuario</div>
-
-            <button class="confirmar">
-              <a href="#" class="">
-                Etiquetar en Instagram
-              </a>
-            </button>
-          </div>
-        </section>
-
-        <section class="section-galeria">
-          <section class="section-info-adicional">
-            <div class="info-block info-clothes">
-              <img height="70" src="./assets/icons/Clothes.svg" alt="clothes" />
-              <h2>Vestimenta</h2>
-              <p>
-                Se invita a vestir con elegancia para la ocasión. El color lila
-                o parecidos han sido reservados para la quinceañera.
-              </p>
-            </div>
-
-            <div class="info-separator">
-              <img
-                width="200"
-                src="./assets/img/separador.png"
-                alt="separator"
-              />
-            </div>
-
-            <!-- 
-            <div class="info-block info-envelope">
-              <img
-                width="70"
-                src="./assets/icons/envelope.svg"
-                alt="envelope"
-              />
-              <h2>Mesa de regalos</h2>
-              <p>
-                La presencia de nuestros distinguidos invitados es el mayor
-                honor. Si desean ofrecer un presente, será recibido con aprecio.
-              </p>
-            </div>
-            -->
           </section>
-        </section>
 
-        <section class="section-message">
-          <div class="box-message">
-            <p>
-              Los mejores momentos de la vida <br />
-              merecen ser compartidos
-            </p>
-            <b>¡Gracias por acompañarnos!</b>
-            <form class="rsvp-form" id="rsvpForm">
-              <h3>Confirma tu asistencia</h3>
-              <label for="rsvpNombre">Nombre completo</label>
-              <input id="rsvpNombre" name="nombre" type="text" required />
-              <div class="rsvp-opciones">
-                <label><input type="radio" name="asistencia" value="si" checked /><span>Sí asistiré</span></label>
-                <label><input type="radio" name="asistencia" value="no" /><span>No podré ir</span></label>
+          {{#musica}}
+          <section class="musica">
+            <div class="music-card">
+              {{#musica.imagen}}<img class="rapunzel" src="{{musica.imagen}}" alt="" />{{/musica.imagen}}
+              {{^musica.imagen}}<div class="album-art"></div>{{/musica.imagen}}
+              <div class="song-title">{{musica.cancion}}</div>
+              <div class="artist-name">{{musica.artista}}</div>
+
+              <button class="play-button" id="playPauseBtn">▶</button>
+
+              <div class="progress-container">
+                <div class="progress" id="progressBar"></div>
               </div>
-              <div class="campo-personas">
-                <label for="rsvpPersonas">Número de asistentes</label>
-                <input id="rsvpPersonas" name="personas" type="number" min="1" value="1" />
-              </div>
-              <label for="rsvpMensaje">Mensaje para la festejada (opcional)</label>
-              <textarea id="rsvpMensaje" name="mensaje" rows="3"></textarea>
-              <button type="submit" class="btn-tema">Enviar por WhatsApp</button>
-            </form>
-            <p class="rsvp-gracias">¡Gracias por tu respuesta!</p>
+
+              <audio id="audioPlayer" src="{{musica.archivo}}"></audio>
+            </div>
+          </section>
+          {{/musica}}
+
+          {{#separadores.despuesMusica}}
+          <div class="img-separador">
+            <img src="{{.}}" alt="separador" />
           </div>
-        </section>
+          {{/separadores.despuesMusica}}
 
-        <!-- Footer -->
-        <footer>
-          Diseñado por
-          <a
-            href="https://www.facebook.com/profile.php?id=61568997140138"
-            target="_blank"
-            >Mirai</a
-          >
-          @2025, Todos los derechos reservados.
-        </footer>
+          {{#dedicatoria}}
+          <div class="palabras">
+            <p>{{dedicatoria.texto}}</p>
+            <small>{{dedicatoria.firma}}</small>
+          </div>
+          {{/dedicatoria}}
+
+          {{#separadores.despuesDedicatoria}}
+          <div class="img-separador">
+            <img src="{{.}}" alt="separador" />
+          </div>
+          {{/separadores.despuesDedicatoria}}
+
+          {{#invitacion}}
+          <section class="section-info">
+            <div class="overlay-section-info">
+              <span></span>
+              <span></span>
+            </div>
+            <div class="box-info">
+              <div class="info-primary">
+                {{#invitacion.encabezado}}
+                <div class="sociedad">
+                  <img style="width: {{invitacion.encabezado.anchoImagen}}" src="{{invitacion.encabezado.imagen}}" alt="" />
+                  <h1>{{invitacion.encabezado.titulo}}</h1>
+                  <h2 class="sub">{{invitacion.encabezado.subtitulo}}</h2>
+                </div>
+                {{/invitacion.encabezado}}
+
+                <p>{{invitacion.saludo}}</p>
+              </div>
+
+              {{#invitacion.familiaArriba}}
+              <div class="padrinos">
+                <p>{{titulo}}</p>
+                {{#nombres}}<h2>{{.}}</h2>{{/nombres}}
+              </div>
+              {{/invitacion.familiaArriba}}
+
+              {{?invitacion.padres}}
+              <div class="padres">
+                <ul>
+                  {{#invitacion.padres}}<li>{{.}}</li>{{/invitacion.padres}}
+                </ul>
+              </div>
+              {{/invitacion.padres}}
+
+              {{#invitacion.frase}}
+              <div class="frase-p">
+                <p>{{invitacion.frase}}</p>
+              </div>
+              {{/invitacion.frase}}
+
+              <div class="frase-l">
+                <h1>{{invitacion.fraseTitulo}}</h1>
+                {{#invitacion.fraseTexto}}<p>{{invitacion.fraseTexto}}</p>{{/invitacion.fraseTexto}}
+              </div>
+
+              <div class="nombre">
+                <h2>{{invitacion.nombre}}</h2>
+                {{#invitacion.apellidos}}<h3>{{invitacion.apellidos}}</h3>{{/invitacion.apellidos}}
+              </div>
+
+              {{#invitacion.padrinos}}
+              <div class="padrinos">
+                <p>{{titulo}}</p>
+                {{#nombres}}<h2>{{.}}</h2>{{/nombres}}
+              </div>
+              {{/invitacion.padrinos}}
+
+              <div class="fecha">
+                <p>{{invitacion.fechaTexto}}</p>
+              </div>
+
+              <div class="date-box">
+                <h2 class="dia">{{invitacion.fecha.dia}}</h2>
+                <h1>{{invitacion.fecha.fecha}}</h1>
+                <h2 class="hora">{{invitacion.fecha.hora}}</h2>
+              </div>
+            </div>
+          </section>
+          {{/invitacion}}
+
+          <!-- El calendario lo arma extras.js con evento.inicio -->
+          {{#calendario}}<section class="section-calendario" id="calendario"></section>{{/calendario}}
+
+          {{#cuentaRegresiva}}
+          <div class="timer">
+            <h1 class="timer-titulo">{{cuentaRegresiva.titulo}}</h1>
+            <ul class="date-time">
+              <li>
+                <div class="time_number" id="dias"></div>
+                <div class="time_txt">{{cuentaRegresiva.dias}}</div>
+              </li>
+              <li>
+                <div class="time_number" id="horas"></div>
+                <div class="time_txt">{{cuentaRegresiva.horas}}</div>
+              </li>
+              <li>
+                <div class="time_number" id="minutos"></div>
+                <div class="time_txt">{{cuentaRegresiva.minutos}}</div>
+              </li>
+              <li>
+                <div class="time_number" id="segundos"></div>
+                <div class="time_txt">{{cuentaRegresiva.segundos}}</div>
+              </li>
+            </ul>
+          </div>
+          {{/cuentaRegresiva}}
+
+          {{#separadores.despuesCuentaRegresiva}}
+          <div class="img-separador">
+            <img src="{{.}}" alt="separador" />
+          </div>
+          {{/separadores.despuesCuentaRegresiva}}
+
+          {{#ubicaciones.ceremonia}}
+          <section class="section-place">
+            <div class="box-place">
+              <div class="place-info center">
+                <img width="75" src="./assets/icons/church.svg" alt="church" fill="#000000" />
+                <div class="place-txt">
+                  <h2>{{ubicaciones.ceremonia.titulo}}</h2>
+                  <p><b>{{ubicaciones.ceremonia.hora}}</b> {{ubicaciones.ceremonia.lugar}}</p>
+                </div>
+              </div>
+              <a class="place-btn" href="{{ubicaciones.ceremonia.mapa}}" target="_blank">{{ubicaciones.ceremonia.boton}}</a>
+            </div>
+          </section>
+          {{/ubicaciones.ceremonia}}
+
+          {{#ubicaciones.recepcion}}
+          <section class="section-place-salon">
+            <div class="box-place-salon">
+              <div class="place-info center">
+                <img width="120" src="./assets/icons/bola.png" alt="disco" />
+                <div class="place-txt fiesta">
+                  <h2>{{ubicaciones.recepcion.titulo}}</h2>
+                  <p><b>{{ubicaciones.recepcion.hora}}</b> {{ubicaciones.recepcion.lugar}}</p>
+                </div>
+              </div>
+              <a class="place-btn" href="{{ubicaciones.recepcion.mapa}}" target="_blank">{{ubicaciones.recepcion.boton}}</a>
+            </div>
+          </section>
+          {{/ubicaciones.recepcion}}
+
+          {{#separadores.antesCronograma}}
+          <div class="img-separador">
+            <img src="{{.}}" alt="separador" />
+          </div>
+          {{/separadores.antesCronograma}}
+
+          {{#cronograma}}
+          <section class="section-cronograma">
+            <h2>{{cronograma.titulo}}</h2>
+            <ul class="cronograma">
+              {{#cronograma.actividades}}
+              <li><span class="hora">{{hora}}</span><span class="actividad">{{actividad}}</span></li>
+              {{/cronograma.actividades}}
+            </ul>
+          </section>
+          {{/cronograma}}
+
+          {{#itinerario}}
+          <section class="timeline">
+            <h2>{{itinerario.titulo}}</h2>
+            <img width="200" src="{{itinerario.imagen}}" alt="separator" class="timeline-separator" />
+            <div class="timeline-container">
+              {{#itinerario.actividades}}
+              <div class="event {{@lado}}">
+                <div class="sign">
+                  <span class="time">{{hora}}</span>
+                  <p>{{actividad}}</p>
+                </div>
+              </div>
+              {{/itinerario.actividades}}
+            </div>
+          </section>
+          {{/itinerario}}
+
+          {{#instagram}}
+          <section class="social-section">
+            <div class="social-card">
+              <span class="social-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>
+              <h2>{{instagram.titulo}}</h2>
+              <p>{{instagram.texto}}</p>
+              <div class="instagram-user">{{instagram.usuario}}</div>
+              {{#instagram.hashtag}}<p class="instagram-hashtag">{{instagram.hashtag}}</p>{{/instagram.hashtag}}
+              <button class="confirmar">
+                <a href="{{instagram.link}}" target="_blank">{{instagram.boton}}</a>
+              </button>
+            </div>
+          </section>
+          {{/instagram}}
+
+          {{#separadores.despuesInstagram}}
+          <div class="img-separador">
+            <img src="{{.}}" alt="separador" />
+          </div>
+          {{/separadores.despuesInstagram}}
+
+          <section class="section-galeria">
+            <section class="section-info-adicional">
+              {{#vestimenta}}
+              <div class="info-block info-clothes">
+                <img height="70" src="./assets/icons/Clothes.svg" alt="clothes" />
+                <h2>{{vestimenta.titulo}}</h2>
+                <p>{{vestimenta.texto}}</p>
+              </div>
+              {{/vestimenta}}
+
+              {{#vestimenta}}
+              <div class="info-separator">
+                <img width="200" src="./assets/img/separador.png" alt="separator" />
+              </div>
+              {{/vestimenta}}
+
+              {{#regalos}}
+              <div class="info-block info-envelope">
+                <img width="70" src="./assets/icons/envelope.svg" alt="envelope" />
+                <h2>{{regalos.titulo}}</h2>
+                <p>{{regalos.texto}}</p>
+                {{#regalos.boton}}
+                <button class="confirmar">
+                  <a href="{{regalos.link}}" target="_blank">{{regalos.boton}}</a>
+                </button>
+                {{/regalos.boton}}
+              </div>
+              {{/regalos}}
+            </section>
+          </section>
+
+          {{#confirmacion}}
+          <section class="section-message">
+            <div class="box-message">
+              <p>{{confirmacion.frase}}</p>
+              <b>{{confirmacion.destacado}}</b>
+              <form class="rsvp-form" id="rsvpForm">
+                <h3>{{confirmacion.titulo}}</h3>
+                <label for="rsvpNombre">{{confirmacion.campoNombre}}</label>
+                <input id="rsvpNombre" name="nombre" type="text" required />
+                <div class="rsvp-opciones">
+                  <label><input type="radio" name="asistencia" value="si" checked /><span>{{confirmacion.opcionSi}}</span></label>
+                  <label><input type="radio" name="asistencia" value="no" /><span>{{confirmacion.opcionNo}}</span></label>
+                </div>
+                <div class="campo-personas">
+                  <label for="rsvpPersonas">{{confirmacion.campoAsistentes}}</label>
+                  <input id="rsvpPersonas" name="personas" type="number" min="1" value="1" />
+                </div>
+                <label for="rsvpMensaje">{{confirmacion.campoMensaje}}</label>
+                <textarea id="rsvpMensaje" name="mensaje" rows="3"></textarea>
+                <button type="submit" class="btn-tema">{{confirmacion.boton}}</button>
+              </form>
+              <p class="rsvp-gracias">{{confirmacion.gracias}}</p>
+            </div>
+          </section>
+          {{/confirmacion}}
+
+          <!-- Footer (con "promo" usa la versión con botón) -->
+          {{#footer.promo}}
+          <footer class="footer-mirai">
+            <span>{{footer.texto}} <b>{{footer.marca}}</b>.</span>
+            <p>{{footer.promo}}</p>
+            <a class="footer-mirai-link" href="{{footer.link}}" target="_blank">{{footer.boton}}</a>
+          </footer>
+          {{/footer.promo}}
+          {{^footer.promo}}
+          <footer>
+            {{footer.texto}}
+            <a href="{{footer.link}}" target="_blank">{{footer.marca}}</a>
+            {{footer.anio}}
+          </footer>
+          {{/footer.promo}}
+        </div>
       </div>
-    </div>
-    <script src="script.js"></script>
-    <script src="extras.js"></script>
+      <script src="script.js"></script>
+      <script src="extras.js"></script>
+    </template>
+
+    <script src="motor.js"></script>
   </body>
 </html>

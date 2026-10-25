@@ -1,0 +1,173 @@
+{
+  "_instrucciones": "Aquí se cambian TODOS los textos, fotos, links y datos de la invitación. Para ocultar una sección pon su clave en false (ejemplo: \"instagram\": false) o agrega \"mostrar\": false dentro de ella para conservar sus textos. Los textos aceptan <br /> para saltos de línea. La fecha de evento.inicio la usan la cuenta regresiva y el calendario.",
+  "pagina": {
+    "titulo": "Invitacion Atziri Abril"
+  },
+  "evento": {
+    "inicio": "2026-08-15T18:00",
+    "duracionHoras": 6,
+    "tituloCalendario": "XV años de Atziri Abril",
+    "lugarCalendario": "Salón de Eventos Las Orquídeas"
+  },
+  "sobre": {
+    "tooltip": "Da click",
+    "carta": "Estás invitado",
+    "cartaNombre": "Atziri Abril"
+  },
+  "portada": {
+    "foto": "./assets/img/Fondo.png",
+    "fotoAlt": "photo",
+    "titulo": "Mis XV",
+    "nombre": "Atziri Abril"
+  },
+  "musica": {
+    "imagen": "./assets/img/rapunzel.png",
+    "cancion": "Veo en ti la luz",
+    "artista": "Chayanne, Danna Paola",
+    "archivo": "./assets/music/Chayanne, Danna Paola - Veo en ti la luz (De EnredadosVideo Oficial).mp3",
+    "botonFlotanteAria": "Pausar o reproducir música"
+  },
+  "separadores": {
+    "despuesMusica": [
+      "./assets/img/xv1.jpg"
+    ],
+    "despuesCuentaRegresiva": [
+      "./assets/img/xv2.jpg"
+    ]
+  },
+  "dedicatoria": {
+    "texto": "Te damos gracias señor por el don de la vida, porque hace quince años nos bendeciste con una linda niña que hoy vemos convertirse en una hermosa señorita: <b>Proverbios 4:23</b> <br />Protege tu corazón con sabiduría y brilla con ese resplandor que tienes hermosa princesa.",
+    "firma": "Atte tus papás"
+  },
+  "invitacion": {
+    "encabezado": {
+      "imagen": "./assets/img/sol.png",
+      "anchoImagen": "150px",
+      "titulo": "Royal Kingdom",
+      "subtitulo": "THE CORONA CHRONICLES"
+    },
+    "saludo": "APRECIABLES FAMILIARES Y AMIGOS <br />CON GRAN ALEGRÍA Y EL CORAZÓN LLENO DE ILUSIÓN DESEAMOS COMPARTIR CON USTEDES UNA NOCHE MÁGICA",
+    "padres": [
+      "Yolanda Cuatzo Mendez",
+      "Ricardo Felipe Abonza Olar"
+    ],
+    "frase": "tienen el honor de invitarles a formar parte de una velada encantada, donde celebraremos la llegada de un nuevo capítulo lleno de sueños, luz y momentos inolvidables junto a nuestros seres más queridos.",
+    "fraseTitulo": "Con motivo de los XV años <br />de su amada hija",
+    "nombre": "Atziri Abril",
+    "apellidos": "Abonza Cuatzo",
+    "padrinos": [
+      {
+        "titulo": "Acompañada por sus padrinos",
+        "nombres": [
+          "Teresa Cuatzo Mendez <br />Martin Reyes Calix"
+        ]
+      }
+    ],
+    "fechaTexto": "tendrán el placer de recibirles en una noche de ensueño el día",
+    "fecha": {
+      "dia": "SÁBADO",
+      "fecha": "15/08/2026",
+      "hora": "a las 18:00 hrs"
+    }
+  },
+  "calendario": {
+    "titulo": "Reserva la fecha",
+    "botonGoogle": "Google Calendar",
+    "botonIcs": "Apple / Outlook"
+  },
+  "cuentaRegresiva": {
+    "titulo": "Solo faltan:",
+    "dias": "Días",
+    "horas": "Horas",
+    "minutos": "Minutos",
+    "segundos": "Segundos"
+  },
+  "ubicaciones": {
+    "ceremonia": {
+      "titulo": "Ceremonia",
+      "hora": "18:00 hrs",
+      "lugar": "Pte. 12-A Manzana 043, Col del Carmen, 56619 Valle de Chalco Solidaridad, Méx.",
+      "mapa": "#",
+      "boton": "VER UBICACIÓN"
+    },
+    "recepcion": {
+      "titulo": "Recepción",
+      "hora": "Terminando la ceremonia",
+      "lugar": "Salon De Eventos \"Las Orquideas\" Avenida Soto y Gama y poniente 12-B, Col del Carmen, 56619 Valle de Chalco Solidaridad, Méx.",
+      "mapa": "#",
+      "boton": "VER UBICACIÓN"
+    }
+  },
+  "cronograma": {
+    "titulo": "Cronograma",
+    "actividades": [
+      {
+        "hora": "18:00",
+        "actividad": "Ceremonia"
+      },
+      {
+        "hora": "19:30",
+        "actividad": "Recepción"
+      },
+      {
+        "hora": "20:30",
+        "actividad": "Cena"
+      },
+      {
+        "hora": "21:30",
+        "actividad": "Vals"
+      },
+      {
+        "hora": "22:00",
+        "actividad": "Baile"
+      },
+      {
+        "hora": "00:00",
+        "actividad": "Pastel"
+      }
+    ]
+  },
+  "instagram": {
+    "titulo": "Captura el momento",
+    "texto": "Comparte los recuerdos más mágicos de esta noche. Etiqueta a la quinceañera y forma parte de esta historia inolvidable.",
+    "usuario": "@usuario",
+    "hashtag": "",
+    "link": "#",
+    "boton": "Etiquetar en Instagram"
+  },
+  "vestimenta": {
+    "titulo": "Vestimenta",
+    "texto": "Se invita a vestir con elegancia para la ocasión. El color lila o parecidos han sido reservados para la quinceañera."
+  },
+  "regalos": {
+    "mostrar": false,
+    "titulo": "Mesa de regalos",
+    "texto": "La presencia de nuestros distinguidos invitados es el mayor honor. Si desean ofrecer un presente, será recibido con aprecio."
+  },
+  "confirmacion": {
+    "frase": "Los mejores momentos de la vida <br />merecen ser compartidos",
+    "destacado": "¡Gracias por acompañarnos!",
+    "titulo": "Confirma tu asistencia",
+    "campoNombre": "Nombre completo",
+    "opcionSi": "Sí asistiré",
+    "opcionNo": "No podré ir",
+    "campoAsistentes": "Número de asistentes",
+    "campoMensaje": "Mensaje para la festejada (opcional)",
+    "boton": "Enviar por WhatsApp",
+    "gracias": "¡Gracias por tu respuesta!",
+    "whatsapp": "",
+    "mensajeWhatsapp": {
+      "saludo": "¡Hola! Soy",
+      "asiste": "Confirmo mi asistencia a XV años de Atziri Abril ✨",
+      "asistentes": "Número de asistentes",
+      "noAsiste": "Lamentablemente no podré asistir a XV años de Atziri Abril.",
+      "mensaje": "Mensaje"
+    }
+  },
+  "footer": {
+    "texto": "Diseñado por",
+    "marca": "Mirai",
+    "link": "https://www.facebook.com/profile.php?id=61568997140138",
+    "anio": "@2025, Todos los derechos reservados."
+  }
+}

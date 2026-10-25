@@ -1,16 +1,18 @@
 /* =========================================================
-   EXTRAS: edita solo este bloque para cada invitación
+   EXTRAS: los datos y textos vienen de contenido.json
+   (los carga motor.js en window.INVITACION); aquí no se edita nada
    ========================================================= */
+const DATOS = window.INVITACION;
 const CONFIG = {
-  titulo: "XV años de Atziri Abril", // Texto del evento en el calendario
-  inicio: "2026-08-15T18:00", // Fecha y hora: AAAA-MM-DDTHH:MM
-  duracionHoras: 6,
-  lugar: "Salón de Eventos Las Orquídeas",
-  whatsapp: "", // Número con lada, ej. 5215512345678 (vacío = el invitado elige contacto)
+  titulo: DATOS.evento.tituloCalendario,
+  inicio: DATOS.evento.inicio, // AAAA-MM-DDTHH:MM
+  duracionHoras: DATOS.evento.duracionHoras,
+  lugar: DATOS.evento.lugarCalendario,
+  whatsapp: DATOS.confirmacion.whatsapp, // vacío = el invitado elige contacto
 };
 
 (() => {
-const audio = document.getElementById("audioPlayer");
+const audio = document.getElementById("audioPlayer") || new Audio();
 const tema = document.body.dataset.tema;
 const fecha = new Date(CONFIG.inicio);
 
@@ -140,7 +142,7 @@ const reducido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* Se activan al abrir el sobre: ráfaga inicial y luego goteo constante */
 document.getElementById("openEnvelope").addEventListener("click", () => {
-  audio.play().then(() => (document.getElementById("playPauseBtn").textContent = "⏸")).catch(() => {});
+  if (audio.src) audio.play().then(() => (document.getElementById("playPauseBtn").textContent = "⏸")).catch(() => {});
   if (reducido || !crearParticula) return;
   setTimeout(() => {
     lanzar(tema === "sapo" ? 25 : 18);
@@ -153,15 +155,17 @@ document.getElementById("openEnvelope").addEventListener("click", () => {
 /* ---------- Botón flotante de música ---------- */
 const flotante = document.createElement("button");
 flotante.className = "musica-flotante";
-flotante.setAttribute("aria-label", "Pausar o reproducir música");
+flotante.setAttribute("aria-label", (DATOS.musica && DATOS.musica.botonFlotanteAria) || "");
 flotante.textContent = "♫";
 document.body.appendChild(flotante);
+if (!document.querySelector(".music-card")) flotante.hidden = true;
 flotante.addEventListener("click", () => document.getElementById("playPauseBtn").click());
 audio.addEventListener("play", () => flotante.classList.add("sonando"));
 audio.addEventListener("pause", () => flotante.classList.remove("sonando"));
-new IntersectionObserver(([e]) => flotante.classList.toggle("activo", !e.isIntersecting)).observe(
-  document.querySelector(".music-card")
-);
+if (document.querySelector(".music-card"))
+  new IntersectionObserver(([e]) => flotante.classList.toggle("activo", !e.isIntersecting)).observe(
+    document.querySelector(".music-card")
+  );
 
 /* ---------- Calendario ---------- */
 const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
@@ -188,12 +192,12 @@ if (seccionCal) {
 
   seccionCal.innerHTML = `
     <div class="calendario-card">
-      <h2 class="calendario-titulo">Reserva la fecha</h2>
+      <h2 class="calendario-titulo">${DATOS.calendario.titulo}</h2>
       <p class="calendario-mes">${meses[mes]} ${anio}</p>
       <div class="calendario-grid">${celdas}</div>
       <div class="calendario-botones">
-        <a class="btn-tema" href="${google}" target="_blank" rel="noopener">Google Calendar</a>
-        <button class="btn-tema secundario" id="descargarIcs">Apple / Outlook</button>
+        <a class="btn-tema" href="${google}" target="_blank" rel="noopener">${DATOS.calendario.botonGoogle}</a>
+        <button class="btn-tema secundario" id="descargarIcs">${DATOS.calendario.botonIcs}</button>
       </div>
     </div>`;
 
@@ -229,14 +233,15 @@ if (form) {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const datos = new FormData(form);
+    const W = DATOS.confirmacion.mensajeWhatsapp;
     const asiste = datos.get("asistencia") === "si";
     let texto =
-      `¡Hola! Soy ${datos.get("nombre").trim()}.\n` +
+      `${W.saludo} ${datos.get("nombre").trim()}.\n` +
       (asiste
-        ? `Confirmo mi asistencia a ${CONFIG.titulo} ✨\nNúmero de asistentes: ${datos.get("personas")}`
-        : `Lamentablemente no podré asistir a ${CONFIG.titulo}.`);
+        ? `${W.asiste}\n${W.asistentes}: ${datos.get("personas")}`
+        : W.noAsiste);
     const mensaje = (datos.get("mensaje") || "").trim();
-    if (mensaje) texto += `\nMensaje: ${mensaje}`;
+    if (mensaje) texto += `\n${W.mensaje}: ${mensaje}`;
     window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(texto)}`, "_blank");
     form.classList.add("enviado");
     form.style.display = "none";
@@ -254,11 +259,11 @@ const sello = document.getElementById("openEnvelope");
 const sobre = document.querySelector(".envelope");
 const tooltip = document.createElement("span");
 tooltip.className = "sobre-tooltip";
-tooltip.textContent = "Da click";
+tooltip.textContent = DATOS.sobre.tooltip;
 sello.appendChild(tooltip);
 const carta = document.createElement("div");
 carta.className = "sobre-carta";
-carta.innerHTML = `<small>Estás invitado</small><strong>${document.querySelector(".titulo h2")?.textContent.trim() || ""}</strong>`;
+carta.innerHTML = `<small>${DATOS.sobre.carta}</small><strong>${DATOS.sobre.cartaNombre}</strong>`;
 sobre.appendChild(carta);
 
 sello.addEventListener("click", () => {

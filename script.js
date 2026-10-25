@@ -1,68 +1,51 @@
-/* Time */
+/* Los datos vienen de contenido.json (los carga motor.js en window.INVITACION) */
+
+/* Cuenta regresiva: la fecha se cambia en evento.inicio de contenido.json */
 const second = 1000,
   minute = second * 60,
   hour = minute * 60,
   day = hour * 24;
 
-let countDown = new Date("Aug 15, 2026 18:00:00").getTime(),
-  x = setInterval(function () {
-    let now = new Date().getTime(),
-      distance = countDown - now;
-
-    if (distance < 0) {
-      clearInterval(x);
-      document.getElementById("dias").innerText = 0;
-      document.getElementById("horas").innerText = 0;
-      document.getElementById("minutos").innerText = 0;
-      document.getElementById("segundos").innerText = 0;
-      console.log("¡El tiempo ha terminado!");
-      return; // Termina la ejecución de la función
-    }
-
-    const dias = Math.floor(distance / day);
-    const horas = Math.floor((distance % day) / hour);
-    const minutos = Math.floor((distance % hour) / minute);
-    const segundos = Math.floor((distance % minute) / second);
-
-    document.getElementById("dias").innerText = dias;
-    document.getElementById("horas").innerText = horas;
-    document.getElementById("minutos").innerText = minutos;
-    document.getElementById("segundos").innerText = segundos;
-
-    console.log(dias, horas, minutos, segundos);
+const countDown = new Date(window.INVITACION.evento.inicio).getTime();
+const x =
+  document.getElementById("dias") &&
+  setInterval(function () {
+    const distance = Math.max(0, countDown - Date.now());
+    document.getElementById("dias").innerText = Math.floor(distance / day);
+    document.getElementById("horas").innerText = Math.floor((distance % day) / hour);
+    document.getElementById("minutos").innerText = Math.floor((distance % hour) / minute);
+    document.getElementById("segundos").innerText = Math.floor((distance % minute) / second);
+    if (distance === 0) clearInterval(x);
   }, second);
 
-if (segundos == 0) {
-  ((document.getElementById("dias").innerText = "00"),
-    (document.getElementById("horas").innerText = "00"),
-    (document.getElementById("minutos").innerText = "00"),
-    (document.getElementById("segundos").innerText = "00"));
-}
-
+/* Música */
 const audio = document.getElementById("audioPlayer");
 const playPauseBtn = document.getElementById("playPauseBtn");
 const progressBar = document.getElementById("progressBar");
 
-playPauseBtn.addEventListener("click", () => {
-  if (audio.paused) {
-    audio.play();
-    playPauseBtn.textContent = "⏸";
-  } else {
-    audio.pause();
+if (audio) {
+  playPauseBtn.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play();
+      playPauseBtn.textContent = "⏸";
+    } else {
+      audio.pause();
+      playPauseBtn.textContent = "▶";
+    }
+  });
+
+  audio.addEventListener("timeupdate", () => {
+    const progress = (audio.currentTime / audio.duration) * 100;
+    progressBar.style.width = progress + "%";
+  });
+
+  audio.addEventListener("ended", () => {
     playPauseBtn.textContent = "▶";
-  }
-});
+    progressBar.style.width = "0%";
+  });
+}
 
-audio.addEventListener("timeupdate", () => {
-  const progress = (audio.currentTime / audio.duration) * 100;
-  progressBar.style.width = progress + "%";
-});
-
-audio.addEventListener("ended", () => {
-  playPauseBtn.textContent = "▶";
-  progressBar.style.width = "0%";
-});
-
+/* Sobre */
 const openBtn = document.getElementById("openEnvelope");
 const envelope = document.querySelector(".envelope");
 const screen = document.getElementById("envelopeScreen");
